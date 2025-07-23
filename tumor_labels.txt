@@ -1,4 +1,3 @@
-_classes.csv
 glioma
 meningioma
 no_tumor
