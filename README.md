@@ -26,8 +26,6 @@ The model used is **InceptionV3**, fine-tuned using transfer learning. It is dep
 
 ### 📸 **Screenshots of the Web App UI**
 
-<img width="983" height="483" alt="image" src="https://github.com/user-attachments/assets/f6d603dd-936b-4b26-97a2-b83087c73d3e" />
-
 <img width="661" height="866" alt="image" src="https://github.com/user-attachments/assets/fa42badb-ce47-4b9c-af28-c6b5dd945a04" />
 
 <img width="720" height="746" alt="image" src="https://github.com/user-attachments/assets/c1d1aeab-b251-4302-8b5d-c01f386fe798" />
