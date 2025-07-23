@@ -1,4 +1,5 @@
-meningioma
+_classes.csv
 glioma
-pituitary
+meningioma
 no_tumor
+pituitary
