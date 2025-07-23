@@ -80,7 +80,7 @@ The model was trained using augmented and normalized images. It was fine-tuned o
 
 ---
 
-##👨‍⚕️ Why This Matters
+## 👨‍⚕️ Why This Matters
 -Supports medical professionals in diagnosing brain tumors.
 -Reduces chances of misdiagnosis through AI assistance.
 -Can be a useful second opinion tool in clinical practice.
