@@ -54,10 +54,10 @@ The model was trained using augmented and normalized images. It was fine-tuned o
 
 ### ✅ **Evaluation Metrics**
 
--Accuracy: 0.8740
--Precision: 0.8763
--Recall: 0.8740
--F1 Score: 0.8738
+- Accuracy: 0.8740
+- Precision: 0.8763
+- Recall: 0.8740
+- F1 Score: 0.8738
 
 ### 📊 **Classification Report**
 
@@ -71,19 +71,19 @@ The model was trained using augmented and normalized images. It was fine-tuned o
 
 ## 📈 Results
 
--The InceptionV3 model achieved an accuracy of 87.4% on the test set.
--The model performs best on glioma and no tumor cases, with slight misclassification between pituitary and meningioma classes.
--Data preprocessing steps included:
---Resizing images
---Normalization
---Data augmentation (rotation, zoom, flip, etc.)
+- The InceptionV3 model achieved an accuracy of 87.4% on the test set.
+- The model performs best on glioma and no tumor cases, with slight misclassification between pituitary and meningioma classes.
+- Data preprocessing steps included:
+-- Resizing images
+-- Normalization
+-- Data augmentation (rotation, zoom, flip, etc.)
 
 ---
 
 ## 👨‍⚕️ Why This Matters
--Supports medical professionals in diagnosing brain tumors.
--Reduces chances of misdiagnosis through AI assistance.
--Can be a useful second opinion tool in clinical practice.
+- Supports medical professionals in diagnosing brain tumors.
+- Reduces chances of misdiagnosis through AI assistance.
+- Can be a useful second opinion tool in clinical practice.
 
 ---
 
