@@ -58,7 +58,7 @@ if uploaded_file:
     try:
         image = Image.open(uploaded_file)
         image = image.convert("RGB")  # Handle grayscale and RGBA
-        st.image(image, caption="Uploaded MRI Scan", use_container_width=True)
+        st.image(image, caption="Uploaded MRI Scan")
 
         st.info("⏳ Predicting tumor type...")
         label, confidence, all_scores = predict(image)
