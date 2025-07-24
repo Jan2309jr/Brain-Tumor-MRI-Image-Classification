@@ -17,7 +17,7 @@ st.set_page_config(
 def load_inception_model():
     # --- CHANGE THIS LINE ---
     # Load the newly saved, compatible model file
-    model = load_model("brain_tumor_InceptionV3_model_compatible.h5") # [cite: 1]
+    model = load_model("best_model_InceptionV3.h5") # [cite: 1]
     return model
 
 model = load_inception_model()
