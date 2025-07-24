@@ -10,7 +10,6 @@ st.set_page_config(
     page_icon="🧠",
     layout="centered"
 )
-
 # Load model
 @st.cache_resource
 def load_inception_model():
@@ -72,4 +71,4 @@ if uploaded_file:
 
 # Footer
 st.markdown("---")
-st.markdown("<small>Built with ❤️ By Janani Ravi</small>", unsafe_allow_html=True)
+st.markdown("<small>Developed By Janani Ravi</small>", unsafe_allow_html=True)
