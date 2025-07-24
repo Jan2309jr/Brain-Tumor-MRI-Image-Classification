@@ -1,6 +1,7 @@
 streamlit==1.22.0
 tensorflow==2.10.0
-numpy==1.26.4
+keras==2.10.0
+numpy<2
 pandas
 opencv-python
 Pillow
