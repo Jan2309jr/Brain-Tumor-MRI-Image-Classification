@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.inception_v3 import preprocess_input
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 import tensorflow as tf
 
 # Set page config
@@ -15,9 +15,7 @@ st.set_page_config(
 # Load model
 @st.cache_resource
 def load_inception_model():
-    # --- CHANGE THIS LINE ---
-    # Load the newly saved, compatible model file
-    model = load_model("best_model_InceptionV3.h5") # [cite: 1]
+    model = load_model("best_model_InceptionV3.h5")
     return model
 
 model = load_inception_model()
@@ -31,17 +29,16 @@ def load_labels():
 
 class_labels = load_labels()
 
-# Image preprocessing
+# Preprocess image
 def preprocess_image(image):
+    image = image.convert("RGB")  # Ensure it's in RGB mode
     image = image.resize((224, 224))
     image_array = np.array(image)
-    if image_array.shape[-1] == 4:  # Remove alpha channel if present
-        image_array = image_array[:, :, :3]
     image_array = preprocess_input(image_array)
     image_array = np.expand_dims(image_array, axis=0)
     return image_array
 
-# Prediction
+# Predict
 def predict(image):
     processed = preprocess_image(image)
     predictions = model.predict(processed)[0]
@@ -49,29 +46,35 @@ def predict(image):
     confidence = predictions[top_idx]
     if top_idx >= len(class_labels):
         raise ValueError(f"Top index {top_idx} out of bounds for class_labels of length {len(class_labels)}")
-    
     return class_labels[top_idx], confidence, predictions
 
-
-# UI
+# Streamlit UI
 st.title("🧠 Brain Tumor MRI Classification")
 st.write("Upload a brain MRI image, and the model will classify the tumor type with confidence scores.")
 
 uploaded_file = st.file_uploader("Upload MRI Image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file:
-    image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded MRI Scan", use_container_width=True)
-    st.info("⏳ Predicting tumor type...")
-    label, confidence, all_scores = predict(image)
+    try:
+        image = Image.open(uploaded_file)
+        image = image.convert("RGB")  # Handle grayscale and RGBA
+        st.image(image, caption="Uploaded MRI Scan", use_container_width=True)
 
-    st.success(f"🧾 Prediction: **{label}**")
-    st.write(f"🔬 Confidence: **{confidence * 100:.2f}%**")
+        st.info("⏳ Predicting tumor type...")
+        label, confidence, all_scores = predict(image)
 
-    # Show confidence scores for all classes
-    st.subheader("📊 Confidence for All Classes:")
-    conf_data = {label: float(f"{score*100:.2f}") for label, score in zip(class_labels, all_scores)}
-    st.bar_chart(conf_data)
+        st.success(f"🧾 Prediction: **{label}**")
+        st.write(f"🔬 Confidence: **{confidence * 100:.2f}%**")
+
+        # Confidence scores bar chart
+        st.subheader("📊 Confidence for All Classes:")
+        conf_data = {label: float(f"{score * 100:.2f}") for label, score in zip(class_labels, all_scores)}
+        st.bar_chart(conf_data)
+
+    except UnidentifiedImageError:
+        st.error("❌ Error: The uploaded file is not a valid image.")
+    except Exception as e:
+        st.error(f"❌ Unexpected error: {str(e)}")
 
 # Footer
 st.markdown("---")
