@@ -22,7 +22,7 @@ The model used is **InceptionV3**, fine-tuned using transfer learning. It is dep
 
 ## 🚀 Demo
 
-### 👉 **[Live Web App Link](#)**  
+### 👉 **[Live Web App Link]([#](https://brain-tumor-mri-image-classification-caw62ryadfwxmrhbutpuos.streamlit.app/))**  
 
 ### 📸 **Screenshots of the Web App UI**
 
