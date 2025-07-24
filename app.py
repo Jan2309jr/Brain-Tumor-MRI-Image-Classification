@@ -4,16 +4,20 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.applications.inception_v3 import preprocess_input
 from PIL import Image
 import tensorflow as tf
+
 # Set page config
 st.set_page_config(
     page_title="Brain Tumor Classifier",
     page_icon="🧠",
     layout="centered"
 )
+
 # Load model
 @st.cache_resource
 def load_inception_model():
-    model = load_model("brain_tumor_InceptionV3_model.h5")
+    # --- CHANGE THIS LINE ---
+    # Load the newly saved, compatible model file
+    model = load_model("brain_tumor_InceptionV3_model_compatible.h5") # [cite: 1]
     return model
 
 model = load_inception_model()
