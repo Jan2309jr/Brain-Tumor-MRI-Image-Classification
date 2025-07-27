@@ -74,9 +74,9 @@ The model was trained using augmented and normalized images. It was fine-tuned o
 - The InceptionV3 model achieved an accuracy of 87.4% on the test set.
 - The model performs best on glioma and no tumor cases, with slight misclassification between pituitary and meningioma classes.
 - Data preprocessing steps included:
--- Resizing images
--- Normalization
--- Data augmentation (rotation, zoom, flip, etc.)
+1. Resizing images
+2. Normalization
+3. Data augmentation (rotation, zoom, flip, etc.)
 
 ---
 
